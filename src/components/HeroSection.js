@@ -1,5 +1,6 @@
 import React from 'react';
 import Lottie from 'react-lottie';
+import { Link } from 'react-router-dom';
 import { HeroOptions } from '../utlis/constants';
 import RESUME_URL from '../utlis/resume.pdf'
 import { downloadFile } from '../utlis/constants';
@@ -19,12 +20,12 @@ const HeroSection = () => {
             Available for new projects and 1:1 mentoring
           </p>
           <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-            <a
-              href="#learn-react"
+            <Link 
+              to={"learn-react"}
               className="inline-block bg-skyblue-500 text-white py-2 px-6 rounded-full text-lg font-semibold border-2 border-white transition duration-300 hover:bg-gray-700 hover:text-white hover:border-transparent hover:shadow-lg"
             >
               Learn React Under the Hood
-            </a>
+            </Link>
             <button
              onClick={()=> downloadFile(RESUME_URL)}
               className="inline-block bg-skyblue-500 text-white py-2 px-6 rounded-full text-lg font-semibold border-2 border-white transition duration-300 hover:bg-gray-700 hover:text-white hover:border-transparent hover:shadow-lg"

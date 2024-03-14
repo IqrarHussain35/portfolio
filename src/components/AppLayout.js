@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react'
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
+
+import LearnReact from './LearnReact';
 import Lottie from 'react-lottie';
 import { loaderOptions } from '../utlis/constants';
-import DynamicHeader from './DynamicHeader'
-import Header from './Header'
-import HeroSection from './HeroSection';
-import TechStack from './TechStack';
-import Projects from './Projects';
-import LiveChatButton from './LiveChatButton';
-import About from './About';
-import Footer from './Footer';
+import Portfolio from './Portfolio';
+import ROverview from './ROverview';
+import LeftSidebar from './LeftSidebar';
+import MainContent from './MainContent';
 const AppLayout = () => {
     const [loading, setLoading] = useState(true);
     useEffect(() => {
@@ -25,16 +28,13 @@ const AppLayout = () => {
        <Lottie options={loaderOptions} height={300} width={300} />
      </div>
         ):(
-            <>
-            <DynamicHeader />
-            <Header />
-            <HeroSection />
-            <TechStack />
-            <Projects />
-            <LiveChatButton />
-            <About />
-            <Footer />
-            </>
+            <BrowserRouter>
+              <Routes>
+                <Route path="/portfolio" element={<Portfolio />} />
+                <Route path="/portfolio/learn-react/*" element={<LearnReact />} />
+              </Routes>
+           
+            </BrowserRouter>
         )
     }
     </>
